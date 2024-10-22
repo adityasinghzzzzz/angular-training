@@ -1,1 +1,8 @@
-
+<div class="courses-list">
+  <app-course-card
+    *ngFor="let course of courses"
+    [course]="course"
+    [authors]="getAuthorsByIds(course.authors)"
+  >
+  </app-course-card>
+</div>
