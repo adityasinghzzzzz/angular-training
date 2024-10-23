@@ -1,11 +1,10 @@
-@import 'src/app/shared/styles/styles';
+@import "src/app/shared/styles/styles";
 
 .course {
- min-width: 60vw;
+  min-width: 60vw;
 
   &__flex {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
 
     & input {
@@ -24,9 +23,23 @@
   &__authors {
     margin-top: 8px;
     display: flex;
+    flex-direction: column;
 
-    &-item {
-      margin-right: 10px;
+    &__list {
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    &__item {
+      display: flex;
+      width: 200px;
+      justify-content: space-between;
+    }
+
+    &__buttons {
+      display: flex;
+      width: 36px;
+      justify-content: space-between;
     }
   }
 
@@ -34,4 +47,21 @@
     margin-left: 4px;
     cursor: pointer;
   }
+
+  label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .left-column {
+    width: 65%;
+  }
+  .right-column {
+    width: 35%;
+    text-align: center;
+  }
+}
+
+.ng-invalid.ng-dirty:not(form) {
+  border: 2px solid red !important;
 }

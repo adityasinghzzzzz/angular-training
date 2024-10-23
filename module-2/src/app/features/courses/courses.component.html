@@ -1,8 +1,15 @@
-<div class="courses-list">
-  <app-course-card
-    *ngFor="let course of courses"
-    [course]="course"
-    [authors]="getAuthorsByIds(course.authors)"
-  >
-  </app-course-card>
-</div>
+<app-search placeholder="Input text"></app-search>
+
+<app-courses-list
+  *ngIf="courses.length > 0"
+  [courses]="courses"
+  [editable]="true"
+></app-courses-list>
+
+<app-info
+  *ngIf="courses.length === 0"
+  title="Your List Is Empty"
+  text="Please use 'Add New Course' button to add your first course."
+>
+  <app-button text="Add New Course"></app-button>
+</app-info>

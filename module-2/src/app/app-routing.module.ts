@@ -1,17 +1,30 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CoursesListComponent } from './features/courses/courses-list/courses-list.component';
-import { CourseInfoComponent } from './features/course-info/course-info.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { CoursesComponent } from "./features/courses/courses.component";
+import {
+  CourseFormComponent,
+  LoginFormComponent,
+  RegistrationFormComponent,
+} from "./shared/components";
 
-
-const routes: Routes = [
-  { path: 'courses', component: CoursesListComponent },
-  { path: 'course-info/:id', component: CourseInfoComponent }, // Pass the course ID
-  { path: '**', redirectTo: 'courses' } // Redirect to courses for any unmatched route
+export const routes: Routes = [
+  {
+    path: "",
+    component: CoursesComponent,
+  },
+  {
+    path: "login",
+    component: LoginFormComponent,
+  },
+  { path: "registration", component: RegistrationFormComponent },
+  {
+    path: "course-form",
+    component: CourseFormComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoitingModule {}

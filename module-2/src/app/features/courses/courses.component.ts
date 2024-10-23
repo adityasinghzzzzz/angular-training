@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
-import { mockedAuthorsList, mockedCoursesList } from '@app/shared/mocks/mock';
+import { Component } from "@angular/core";
+import { mockedAuthorsList, mockedCoursesList } from "@app/shared/mocks/mock";
+import { Course } from "@app/types";
 
 @Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css']
+  selector: "app-courses",
+  templateUrl: "./courses.component.html",
+  styleUrls: ["./courses.component.css"],
 })
 export class CoursesComponent {
-  courses = mockedCoursesList;
-  authors = mockedAuthorsList;
-
-  getAuthorsByIds(authorIds: string[]): string {
-    return this.authors
-      .filter(author => authorIds.includes(author.id))
-      .map(author => author.name)
-      .join(', ');
+  courses: Course[] = [];
+  constructor() {
+    this.courses = mockedCoursesList.map((course) => {
+      return {
+        ...course,
+        authors: mockedAuthorsList.filter((author) =>
+          course.authors.includes(author.id)
+        ),
+      };
+    });
   }
 }

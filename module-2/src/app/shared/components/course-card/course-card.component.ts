@@ -1,10 +1,15 @@
-import { Component,Input  } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { Course } from "@app/types";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 @Component({
-  selector: 'app-course-card',
-  templateUrl: './course-card.component.html',
-  styleUrls: ['./course-card.component.scss']
+  selector: "app-course-card",
+  templateUrl: "./course-card.component.html",
+  styleUrls: ["./course-card.component.scss"],
 })
 export class CourseCardComponent {
-  @Input() course: any;  // Declare course as an input property
-  @Input() authors?: string; // Authors list passed in as well
+  @Input() course: Course = {} as Course;
+  @Input() editable: boolean = false;
+  editIcon = faEdit;
+  deleteIcon = faTrash;
 }

@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
-import { mockedAuthorsList, mockedCoursesList } from '@app/shared/mocks/mock';
+import { Component, Input } from "@angular/core";
+import { Course } from "@app/types";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 @Component({
-  selector: 'app-courses-list',
-  templateUrl: './courses-list.component.html',
-  styleUrls: ['./courses-list.component.css']
+  selector: "app-courses-list",
+  templateUrl: "./courses-list.component.html",
+  styleUrls: ["./courses-list.component.scss"],
 })
 export class CoursesListComponent {
-  courses = mockedCoursesList;
-  authors = mockedAuthorsList;
-
-  getAuthorsByIds(authorIds: string[]): string {
-    return this.authors
-      .filter(author => authorIds.includes(author.id))
-      .map(author => author.name)
-      .join(', ');
-  }
+  @Input() courses: Course[] = [];
+  @Input() editable: boolean = false;
+  faEdit = faEdit;
+  feDelete = faTrash;
 }

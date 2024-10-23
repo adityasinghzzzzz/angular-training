@@ -1,9 +1,13 @@
-@import 'src/app/shared/styles/styles';
+@import "src/app/shared/styles/styles";
 
 .registration-form {
-  width: 260px;
+  width: 286px;
   margin-top: 36px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.ng-invalid.ng-dirty:not(form) {
+  border: 2px solid red !important;
 }

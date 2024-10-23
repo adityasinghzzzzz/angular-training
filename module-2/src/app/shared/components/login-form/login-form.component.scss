@@ -1,9 +1,16 @@
-@import 'src/app/shared/styles/styles.scss';
+@import "src/app/shared/styles/styles.scss";
 
 .login-form {
-  width: 260px;
+  width: 286px;
   margin-top: 36px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  .form__text__registration {
+    cursor: pointer;
+  }
+}
+
+.ng-invalid.ng-dirty:not(form) {
+  border: 2px solid red !important;
 }
